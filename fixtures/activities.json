@@ -1,0 +1,38 @@
+[
+    {
+        "model": "daytripperapi.activity",
+        "pk": 1,
+        "fields": {
+            "trip": 5,
+            "activity_type": 1,
+            "title": "Visit Colosseum",
+            "day": "2023-09-15",
+            "time": "10:00:00",
+            "description": "Explore the ancient Roman amphitheater."
+        }
+    },
+    {
+        "model": "daytripperapi.activity",
+        "pk": 2,
+        "fields": {
+            "trip": 5,
+            "activity_type": 2,
+            "title": "Gondola Ride in Venice",
+            "day": "2023-09-17",
+            "time": "15:30:00",
+            "description": "Enjoy a romantic gondola ride through the canals of Venice."
+        }
+    },
+    {
+        "model": "daytripperapi.activity",
+        "pk": 3,
+        "fields": {
+            "trip": 5,
+            "activity_type": 3,
+            "title": "Wine Tasting",
+            "day": "2023-09-15",
+            "time": "17:30:00",
+            "description": "Winery location: Non passare da via di Fioranello, Via della Marrana di Santa Fresca, 82, 00134 Roma RM, Italy"
+        }
+    }
+]

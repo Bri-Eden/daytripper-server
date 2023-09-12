@@ -1,0 +1,29 @@
+[
+    {
+        "model": "daytripperapi.planner",
+        "pk": 1,
+        "fields": {
+            "user": 1,
+            "location": "New York, NY",
+            "photo": "https://example.com/photo1.jpg"
+        }
+    },
+    {
+        "model": "daytripperapi.planner",
+        "pk": 2,
+        "fields": {
+            "user": 2,
+            "location": "Nashville, TN",
+            "photo": "https://example.com/photo2.jpg"
+        }
+    },
+    {
+        "model": "daytripperapi.planner",
+        "pk": 3,
+        "fields": {
+            "user": 3,
+            "location": "Florida, USA",
+            "photo": "https://example.com/photo2.jpg"
+        }
+    }
+]
