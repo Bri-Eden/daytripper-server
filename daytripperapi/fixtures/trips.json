@@ -1,0 +1,77 @@
+[
+    {
+        "model": "daytripperapi.trip",
+        "pk": 1,
+        "fields": {
+            "planner": 1,
+            "mode_of_transport": 2,
+            "cover_photo": "photos/photo1.jpg",
+            "destination": "New York",
+            "num_of_days": 5,
+            "num_of_nights": 4,
+            "climate": "Sunny",
+            "arrival": "2023-09-20",
+            "departure": "2023-09-25"
+        }
+    },
+    {
+        "model": "daytripperapi.trip",
+        "pk": 2,
+        "fields": {
+            "planner": 2,
+            "mode_of_transport": 2,
+            "cover_photo": "photos/photo2.jpg",
+            "destination": "London",
+            "num_of_days": 6,
+            "num_of_nights": 6,
+            "climate": "Overcast",
+            "arrival": "2023-09-18",
+            "departure": "2023-09-24"
+        }
+    },
+    {
+        "model": "daytripperapi.trip",
+        "pk": 3,
+        "fields": {
+            "planner": 3,
+            "mode_of_transport": 1,
+            "cover_photo": "photos/photo2.jpg",
+            "destination": "Great Smokey Mountains",
+            "num_of_days": 3,
+            "num_of_nights": 2,
+            "climate": "Sunny",
+            "arrival": "2023-10-18",
+            "departure": "2023-10-21"
+        }
+    },
+    {
+        "model": "daytripperapi.trip",
+        "pk": 4,
+        "fields": {
+            "planner": 2,
+            "mode_of_transport": 1,
+            "cover_photo": "photos/photo2.jpg",
+            "destination": "Chicago",
+            "num_of_days": 4,
+            "num_of_nights": 3,
+            "climate": "Chilly",
+            "arrival": "2023-03-20",
+            "departure": "2023-03-24"
+        }
+    },
+    {
+        "model": "daytripperapi.trip",
+        "pk": 5,
+        "fields": {
+            "planner": 2,
+            "mode_of_transport": 1,
+            "cover_photo": "photos/photo2.jpg",
+            "destination": "Italy",
+            "num_of_days": 4,
+            "num_of_nights": 4,
+            "climate": "Hot and Sunny",
+            "arrival": "2023-05-06",
+            "departure": "2023-05-10"
+        }
+    }
+]

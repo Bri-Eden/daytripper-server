@@ -8,7 +8,7 @@ class Planner(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     # Additional address field to capture from the client
     location = models.CharField(max_length=155)
-    photo = models.ImageField(upload_to='photos/')
+    photo = models.URLField()
 
     @property
     def full_name(self):

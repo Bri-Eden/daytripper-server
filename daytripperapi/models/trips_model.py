@@ -6,9 +6,11 @@ class Trip(models.Model):
         "Planner", on_delete=models.CASCADE, related_name='trip')
     mode_of_transport = models.ForeignKey(
         "TransportationType", on_delete=models.CASCADE, related_name='trip')
-    cover_photo = models.ImageField(upload_to='photos/')
+    cover_photo = models.URLField()
     destination = models.CharField(max_length=50)
     num_of_days = models.IntegerField()
     num_of_nights = models.IntegerField()
     climate = models.CharField(max_length=150)
-
+    arrival = models.DateField()
+    departure = models.DateField()
+    items_to_pack = models.ManyToManyField("PackItem", through="PackList")

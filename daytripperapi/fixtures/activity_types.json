@@ -1,0 +1,37 @@
+[
+    {
+        "model": "daytripperapi.activitytype",
+        "pk": 1,
+        "fields": {
+            "type": "Museums and Culture"
+        }
+    },
+    {
+        "model": "daytripperapi.activitytype",
+        "pk": 2,
+        "fields": {
+            "type": "Outdoor Activity"
+        }
+    },
+    {
+        "model": "daytripperapi.activitytype",
+        "pk": 3,
+        "fields": {
+            "type": "Food and Drink"
+        }
+    },
+    {
+        "model": "daytripperapi.activitytype",
+        "pk": 4,
+        "fields": {
+            "type": "Relaxation"
+        }
+    },
+    {
+        "model": "daytripperapi.activitytype",
+        "pk": 5,
+        "fields": {
+            "type": "Shopping"
+        }
+    }
+]

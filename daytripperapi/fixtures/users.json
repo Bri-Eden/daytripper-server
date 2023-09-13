@@ -1,0 +1,53 @@
+[
+    {
+        "model": "auth.user",
+        "pk": 1,
+        "fields": {
+            "password": "daytripper1",
+            "last_login": null,
+            "is_superuser": false,
+            "username": "carrie@gmail.com",
+            "first_name": "Carrie",
+            "last_name": "Belk",
+            "email": "carrie@gmail.com",
+            "is_active": true,
+            "date_joined": "2020-08-28T14:51:39.989Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 2,
+        "fields": {
+            "password": "daytripper2",
+            "last_login": null,
+            "is_superuser": false,
+            "username": "briana@gmail.com",
+            "first_name": "Briana",
+            "last_name": "Phillips",
+            "email": "briana@gmail.com",
+            "is_active": true,
+            "date_joined": "2020-08-28T14:51:39.989Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 3,
+        "fields": {
+            "password": "daytripper3",
+            "last_login": null,
+            "is_superuser": false,
+            "username": "Kelsey@gmail.com",
+            "first_name": "Kelsey",
+            "last_name": "Lemmer",
+            "email": "Kelsey@gmail.com",
+            "is_active": true,
+            "date_joined": "2020-08-28T14:51:39.989Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    }
+]

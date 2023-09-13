@@ -1,0 +1,37 @@
+[
+    {
+        "model": "daytripperapi.itemtype",
+        "pk": 1,
+        "fields": {
+            "type": "Clothing"
+        }
+    },
+    {
+        "model": "daytripperapi.itemtype",
+        "pk": 2,
+        "fields": {
+            "type": "Toiletries"
+        }
+    },
+    {
+        "model": "daytripperapi.itemtype",
+        "pk": 3,
+        "fields": {
+            "type": "Electronics"
+        }
+    },
+    {
+        "model": "daytripperapi.itemtype",
+        "pk": 4,
+        "fields": {
+            "type": "Travel Essentials"
+        }
+    },
+    {
+        "model": "daytripperapi.itemtype",
+        "pk": 5,
+        "fields": {
+            "type": "Entertainment"
+        }
+    }
+]

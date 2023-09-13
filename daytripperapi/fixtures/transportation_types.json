@@ -1,0 +1,30 @@
+[
+    {
+        "model": "daytripperapi.transportationtype",
+        "pk": 1,
+        "fields": {
+            "type": "car"
+        }
+    },
+    {
+        "model": "daytripperapi.transportationtype",
+        "pk": 2,
+        "fields": {
+            "type": "plane"
+        }
+    },
+    {
+        "model": "daytripperapi.transportationtype",
+        "pk": 3,
+        "fields": {
+            "type": "train"
+        }
+    },
+    {
+        "model": "daytripperapi.transportationtype",
+        "pk": 4,
+        "fields": {
+            "type": "boat"
+        }
+    }
+]

@@ -1,0 +1,10 @@
+[
+    {
+        "model": "daytripperapi.packlist",
+        "pk": 1,
+        "fields": {
+            "packitem": 1,
+            "trip": 1
+        }
+    }
+]

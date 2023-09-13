@@ -9,3 +9,4 @@ class PackItem(models.Model):
     item_name = models.CharField(max_length=50)
     amount = models.IntegerField()
     description = models.CharField(max_length=150)
+    trips = models.ManyToManyField("Trip", through="PackList")

@@ -1,0 +1,244 @@
+[
+    {
+        "model": "daytripperapi.packitem",
+        "pk": 1,
+        "fields": {
+            "planner": 1,
+            "item_type": 2,
+            "item_name": "Sunscreen",
+            "amount": 1,
+            "description": "SPF 50"
+        }
+    },
+    {
+        "model": "daytripperapi.packitem",
+        "pk": 2,
+        "fields": {
+            "planner": 1,
+            "item_type": 1,
+            "item_name": "Swimsuit",
+            "amount": 1,
+            "description": "Bikini"
+        }
+    },
+    {
+        "model": "daytripperapi.packitem",
+        "pk": 3,
+        "fields": {
+            "planner": 1,
+            "item_type": 1,
+            "item_name": "Black Shorts",
+            "amount": 1,
+            "description": "Madewell"
+        }
+    },
+    {
+        "model": "daytripperapi.packitem",
+        "pk": 4,
+        "fields": {
+            "planner": 2,
+            "item_type": 1,
+            "item_name": "White Button Up",
+            "amount": 1,
+            "description": "Linen, J. Crew"
+        }
+    },
+    {
+        "model": "daytripperapi.packitem",
+        "pk": 5,
+        "fields": {
+            "planner": 2,
+            "item_type": 1,
+            "item_name": "White Tank tops",
+            "amount": 3,
+            "description": "undershirts"
+        }
+    },
+    {
+        "model": "daytripperapi.packitem",
+        "pk": 6,
+        "fields": {
+            "planner": 2,
+            "item_type": 1,
+            "item_name": "Black Cardigan",
+            "amount": 1,
+            "description": "Chunky knit"
+        }
+    },
+    {
+        "model": "daytripperapi.packitem",
+        "pk": 7,
+        "fields": {
+            "planner": 2,
+            "item_type": 1,
+            "item_name": "Brown Slacks",
+            "amount": 1,
+            "description": "Target"
+        }
+    },
+    {
+        "model": "daytripperapi.packitem",
+        "pk": 8,
+        "fields": {
+            "planner": 2,
+            "item_type": 1,
+            "item_name": "Chacos",
+            "amount": 1,
+            "description": "black sandals"
+        }
+    },
+    {
+        "model": "daytripperapi.packitem",
+        "pk": 9,
+        "fields": {
+            "planner": 2,
+            "item_type": 1,
+            "item_name": "Tennis Shoes",
+            "amount": 1,
+            "description": "Nike Dunks"
+        }
+    },
+    {
+        "model": "daytripperapi.packitem",
+        "pk": 10,
+        "fields": {
+            "planner": 2,
+            "item_type": 2,
+            "item_name": "Face Wash",
+            "amount": 1,
+            "description": "mini LRP"
+        }
+    },
+    {
+        "model": "daytripperapi.packitem",
+        "pk": 11,
+        "fields": {
+            "planner": 2,
+            "item_type": 2,
+            "item_name": "Serum",
+            "amount": 1,
+            "description": "HA AM serum"
+        }
+    },
+    {
+        "model": "daytripperapi.packitem",
+        "pk": 12,
+        "fields": {
+            "planner": 2,
+            "item_type": 2,
+            "item_name": "Shampoo",
+            "amount": 1,
+            "description": "mini"
+        }
+    },
+    {
+        "model": "daytripperapi.packitem",
+        "pk": 13,
+        "fields": {
+            "planner": 2,
+            "item_type": 2,
+            "item_name": "Conditioner",
+            "amount": 1,
+            "description": "mini"
+        }
+    },
+    {
+        "model": "daytripperapi.packitem",
+        "pk": 14,
+        "fields": {
+            "planner": 2,
+            "item_type": 2,
+            "item_name": "Body Wash",
+            "amount": 1,
+            "description": "mini"
+        }
+    },
+    {
+        "model": "daytripperapi.packitem",
+        "pk": 15,
+        "fields": {
+            "planner": 2,
+            "item_type": 3,
+            "item_name": "Phone Charger",
+            "amount": 1,
+            "description": "10 ft iPhone"
+        }
+    },
+    {
+        "model": "daytripperapi.packitem",
+        "pk": 16,
+        "fields": {
+            "planner": 2,
+            "item_type": 3,
+            "item_name": "Laptop",
+            "amount": 1,
+            "description": "Work computer"
+        }
+    },
+    {
+        "model": "daytripperapi.packitem",
+        "pk": 17,
+        "fields": {
+            "planner": 2,
+            "item_type": 3,
+            "item_name": "Laptop Charger",
+            "amount": 1,
+            "description": "Dell, black charger"
+        }
+    },
+    {
+        "model": "daytripperapi.packitem",
+        "pk": 18,
+        "fields": {
+            "planner": 2,
+            "item_type": 3,
+            "item_name": "Headphones",
+            "amount": 1,
+            "description": "Sony over ear"
+        }
+    },
+    {
+        "model": "daytripperapi.packitem",
+        "pk": 19,
+        "fields": {
+            "planner": 2,
+            "item_type": 3,
+            "item_name": "Headphone charger",
+            "amount": 1,
+            "description": "just the cord; use brick from phone charger"
+        }
+    },
+    {
+        "model": "daytripperapi.packitem",
+        "pk": 20,
+        "fields": {
+            "planner": 2,
+            "item_type": 5,
+            "item_name": "Book",
+            "amount": 1,
+            "description": "Orlando by Virginia Woolf"
+        }
+    },
+    {
+        "model": "daytripperapi.packitem",
+        "pk": 21,
+        "fields": {
+            "planner": 2,
+            "item_type": 5,
+            "item_name": "Book",
+            "amount": 1,
+            "description": "A Little Life by Yanagihara"
+        }
+    },
+    {
+        "model": "daytripperapi.packitem",
+        "pk": 22,
+        "fields": {
+            "planner": 2,
+            "item_type": 5,
+            "item_name": "Crossword Book",
+            "amount": 1,
+            "description": "Bring a pencil!"
+        }
+    }
+]
