@@ -18,8 +18,20 @@ from django.contrib import admin
 from django.conf.urls import include
 from django.urls import path
 from daytripperapi.views import register_user, login_user
+from rest_framework import routers
+from daytripperapi.views import PlannerView, ActivityTypeView, ActivityView, ItemTypeView, PackItemView, TransportaionTypeView, TripView
+
+router = routers.DefaultRouter(trailing_slash=False)
+router.register(r'planner', PlannerView, 'planner')
+router.register(r'activitytypes', ActivityTypeView, 'activitytype')
+router.register(r'activities', ActivityView, 'activity')
+router.register(r'trips', TripView, 'trips')
+router.register(r'itemtypes', ItemTypeView, 'itemtype')
+router.register(r'packitems', PackItemView, 'packitem')
+router.register(r'transportation', TransportaionTypeView, 'transportation')
 
 urlpatterns = [
+    path('', include(router.urls)),
     path('register', register_user),
     path('login', login_user),
     path('admin/', admin.site.urls),

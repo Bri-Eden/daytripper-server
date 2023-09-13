@@ -14,3 +14,4 @@ python3 manage.py loaddata planners
 python3 manage.py loaddata trips
 python3 manage.py loaddata packitems
 python3 manage.py loaddata activities
+python3 manage.py loaddata packlist

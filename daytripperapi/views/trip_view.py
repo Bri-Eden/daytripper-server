@@ -1,4 +1,4 @@
-"""View module for handling requests about game types"""
+"""View module for handling requests about trips"""
 from django.http import HttpResponseServerError
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
@@ -87,4 +87,4 @@ class TripSerializer(serializers.ModelSerializer):
         model = Trip
         fields = ('id', 'planner', 'mode_of_transport', 'cover_photo',
                   'destination', 'num_of_days', 'num_of_nights', 'climate',
-                  'arrival', 'departure')
+                  'arrival', 'departure', 'activities')

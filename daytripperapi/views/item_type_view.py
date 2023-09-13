@@ -1,18 +1,18 @@
-"""View module for handling requests about planners"""
+"""View module for handling requests about game types"""
 from django.http import HttpResponseServerError
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
-from daytripperapi.models import Planner
+from daytripperapi.models import ItemType
 
 
-class PlannerView(ViewSet):
+class ItemTypeView(ViewSet):
     """Level up game types view"""
 
     def retrieve(self, request, pk):
-        """Handle GET requests for single planner"""
-        planner = Planner.objects.get(pk=pk)
-        serializer = PlannerSerializer(planner)
+        """Handle GET requests for single game type"""
+        item_type = ItemType.objects.get(pk=pk)
+        serializer = ItemTypeSerializer(item_type)
 
         """Returns:
             Response -- JSON serialized game type
@@ -25,14 +25,14 @@ class PlannerView(ViewSet):
         Returns:
             Response -- JSON serialized list of game types
         """
-        planners = Planner.objects.all()
-        serializer = PlannerSerializer(planners, many=True)
+        item_types = ItemType.objects.all()
+        serializer = ItemTypeSerializer(item_types, many=True)
         return Response(serializer.data)
 
 
-class PlannerSerializer(serializers.ModelSerializer):
+class ItemTypeSerializer(serializers.ModelSerializer):
     """JSON serializer for game types
     """
     class Meta:
-        model = Planner
-        fields = ('id', 'location', 'photo', 'trip')
+        model = ItemType
+        fields = ('id', 'type')

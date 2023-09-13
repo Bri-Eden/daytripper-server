@@ -13,3 +13,4 @@ class Trip(models.Model):
     climate = models.CharField(max_length=150)
     arrival = models.DateField()
     departure = models.DateField()
+    items_to_pack = models.ManyToManyField("PackItem", through="PackList")
