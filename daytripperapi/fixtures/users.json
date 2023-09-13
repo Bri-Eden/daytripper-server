@@ -35,7 +35,7 @@
     },
     {
         "model": "auth.user",
-        "pk": 1,
+        "pk": 3,
         "fields": {
             "password": "daytripper3",
             "last_login": null,
