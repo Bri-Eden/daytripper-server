@@ -52,7 +52,7 @@ def register_user(request):
     last_name = request.data.get('last_name', None)
     password = request.data.get('password', None)
     location = request.data['location']
-    photo = request.data['photo']
+    photo = request.data.get('photo', 'https://imgur.com/qhgJMUC')
 
     if email is not None\
             and first_name is not None \
@@ -70,7 +70,7 @@ def register_user(request):
                 last_name=last_name
             )
 
-            # Now save the extra info in the levelupapi_gamer table
+
             planner = Planner.objects.create(
                 location=location,
                 photo=photo,

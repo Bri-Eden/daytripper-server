@@ -35,4 +35,4 @@ class PlannerSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = Planner
-        fields = ('id', 'location', 'photo', 'trip')
+        fields = ('id', 'user', 'location', 'photo', 'trip')

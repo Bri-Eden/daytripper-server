@@ -25,8 +25,8 @@ class TripView(ViewSet):
             Response -- JSON serialized list of trips
         """
         trips = Trip.objects.order_by('arrival')
-        if "user" in request.query_params:
-            planner = Planner.objects.get(user=request.auth.user)
+        if "current" in request.query_params:
+            planner = Planner.objects.get(user=request.auth.user.id)
             trips = trips.filter(planner=planner)
 
         serializer = TripSerializer(trips, many=True)
@@ -61,11 +61,11 @@ class TripView(ViewSet):
         Returns:
         Response -- Empty body with 204 status code
             """
-        planner = Planner.objects.get(user=request.auth.user)
+      #  planner = Planner.objects.get(pk=request.data["id"])
         mode_of_transport = TransportationType.objects.get(
-            pk=request.data["mode_of_transportation"])
+            pk=request.data["mode_of_transport"])
         
-        trip = Trip.objects.get(pk=request.data["trip"])
+        trip = Trip.objects.get(pk=pk)
 
         trip.cover_photo = request.data["cover_photo"],
         trip.destination = request.data["destination"],
@@ -74,8 +74,10 @@ class TripView(ViewSet):
         trip.climate = request.data["climate"],
         trip.arrival = request.data["arrival"],
         trip.departure = request.data["departure"],
-        trip.planner = planner,
+        trip.planner = Planner.objects.get(pk=request.data["planner"]),
         trip.mode_of_transport = mode_of_transport
+
+        trip.save()
 
         return Response(None, status=status.HTTP_204_NO_CONTENT)
 
