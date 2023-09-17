@@ -38,7 +38,7 @@ class ActivityView(ViewSet):
         Returns
         Response -- JSON serialized game instance
         """
-        #would this be user? or planner?
+        # would this be user? or planner?
         trip = Trip.objects.get(user=request.auth.user)
         activity_type = ActivityType.objects.get(
             pk=request.data["activity_type"])
@@ -76,10 +76,29 @@ class ActivityView(ViewSet):
         return Response(None, status=status.HTTP_204_NO_CONTENT)
 
 
+class TripSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Trip
+        fields = ('id', 'planner',
+                  'destination', 'arrival', 'departure')
+
+
+class ActivityTypeSerializer(serializers.ModelSerializer):
+    """JSON serializer for game types
+    """
+    class Meta:
+        model = ActivityType
+        fields = ('id', 'type')
+
+
 class ActivitySerializer(serializers.ModelSerializer):
     """JSON serializer for trip types
     """
+    activity_type = ActivityTypeSerializer(many=False)
+    trip = TripSerializer(many=False)
+
     class Meta:
         model = Activity
         fields = ('id', 'trip', 'activity_type', 'title',
-                  'day', 'time', 'description', 'activity')
+                  'day', 'time', 'description')

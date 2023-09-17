@@ -73,9 +73,28 @@ class PackItemView(ViewSet):
         return Response(None, status=status.HTTP_204_NO_CONTENT)
 
 
+class PlannerSerializer(serializers.ModelSerializer):
+    """JSON serializer for game types
+    """
+    class Meta:
+        model = Planner
+        fields = ('id', 'user', 'location', 'photo', 'trip')
+
+
+class ItemTypeSerializer(serializers.ModelSerializer):
+    """JSON serializer for game types
+    """
+    class Meta:
+        model = ItemType
+        fields = ('id', 'type')
+
+
 class PackItemSerializer(serializers.ModelSerializer):
     """JSON serializer for trip types
     """
+    planner = PlannerSerializer(many=False)
+    item_type = ItemTypeSerializer(many=False)
+
     class Meta:
         model = PackItem
         fields = ('id', 'planner', 'item_type', 'item_name',
