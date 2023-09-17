@@ -3,7 +3,7 @@ from django.http import HttpResponseServerError
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
-from daytripperapi.models import Trip, Planner, TransportationType
+from daytripperapi.models import Trip, Planner, TransportationType, Activity
 
 
 class TripView(ViewSet):
@@ -39,7 +39,8 @@ class TripView(ViewSet):
         Response -- JSON serialized game instance
         """
         planner = Planner.objects.get(user=request.auth.user)
-        mode_of_transport = TransportationType.objects.get(pk=request.data["mode_of_transport"])
+        mode_of_transport = TransportationType.objects.get(
+            pk=request.data["mode_of_transport"])
 
         trip = Trip.objects.create(
             cover_photo=request.data["cover_photo"],
@@ -65,7 +66,7 @@ class TripView(ViewSet):
       # planner = Planner.objects.get(user=request.auth.user.id)
         mode_of_transport = TransportationType.objects.get(
             pk=request.data["mode_of_transport"])
-        
+
         trip = Trip.objects.get(pk=pk)
 
         trip.cover_photo = request.data["cover_photo"]
@@ -80,19 +81,28 @@ class TripView(ViewSet):
         trip.save()
 
         return Response(None, status=status.HTTP_204_NO_CONTENT)
-    
+
     def destroy(self, request, pk):
         trip = Trip.objects.get(pk=pk)
         trip.delete()
         return Response(None, status=status.HTTP_204_NO_CONTENT)
 
 
-
-class TripSerializer(serializers.ModelSerializer):
+class ActivitySerializer(serializers.ModelSerializer):
     """JSON serializer for trip types
     """
+    class Meta:
+        model = Activity
+        fields = ('id', 'trip', 'activity_type', 'title',
+                  'day', 'time', 'description')
+
+
+class TripSerializer(serializers.ModelSerializer):
+
+    activities = ActivitySerializer(many=True)
+
     class Meta:
         model = Trip
         fields = ('id', 'planner', 'mode_of_transport', 'cover_photo',
                   'destination', 'num_of_days', 'num_of_nights', 'climate',
-                  'arrival', 'departure', 'activities')
+                  'arrival', 'departure', 'activities', 'items_to_pack')

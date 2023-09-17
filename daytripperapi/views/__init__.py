@@ -6,3 +6,4 @@ from .pack_item_view import PackItemView
 from .planner_view import PlannerView
 from .transportation_type_view import TransportaionTypeView
 from .trip_view import TripView
+from .pack_list_view import PackListView

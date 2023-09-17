@@ -19,10 +19,11 @@ from django.conf.urls import include
 from django.urls import path
 from daytripperapi.views import register_user, login_user
 from rest_framework import routers
-from daytripperapi.views import PlannerView, ActivityTypeView, ActivityView, ItemTypeView, PackItemView, TransportaionTypeView, TripView
+from daytripperapi.views import PackListView, PlannerView, ActivityTypeView, ActivityView, ItemTypeView, PackItemView, TransportaionTypeView, TripView
 
 router = routers.DefaultRouter(trailing_slash=False)
 router.register(r'planner', PlannerView, 'planner')
+router.register(r'packlists', PackListView, 'packlist')
 router.register(r'activitytypes', ActivityTypeView, 'activitytype')
 router.register(r'activities', ActivityView, 'activity')
 router.register(r'trips', TripView, 'trips')

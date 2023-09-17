@@ -5,5 +5,4 @@ from .packitems_model import PackItem
 from .itemtype_model import ItemType
 from .activitytype_model import ActivityType
 from .activities_model import Activity
-from .itinerary_model import TripActivity
 from .packlist_model import PackList
