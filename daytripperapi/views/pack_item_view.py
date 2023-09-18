@@ -24,10 +24,10 @@ class PackItemView(ViewSet):
         Returns:
             Response -- JSON serialized list of trips
         """
-        pack_items = PackItem.objects.get(all)
-        if "user" in request.query_params:
-            planner = Planner.objects.get(user=request.auth.user)
-            pack_item = pack_item.filter(planner=planner)
+        pack_items = PackItem.objects.order_by('item_type')
+        if "current" in request.query_params:
+            planner = Planner.objects.get(user=request.auth.user.id)
+            pack_items = pack_items.filter(planner=planner)
 
         serializer = PackItemSerializer(pack_items, many=True)
         return Response(serializer.data)
