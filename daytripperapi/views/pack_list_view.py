@@ -24,10 +24,21 @@ class PackListView(ViewSet):
         Returns:
             Response -- JSON serialized list of trips
         """
+
         packlists = PackList.objects.order_by('packitem')
-        # if "current" in request.query_params:
-        # packlists = PackList.objects.get(user=request.auth.user.id)
-        # packlists = trips.filter(planner=planner)
+
+        trip_id = request.query_params.get("trip")
+
+        if trip_id:
+            try:
+                trip = Trip.objects.get(id=trip_id)
+                packlists = PackList.objects.get(trip=trip)
+
+            except Trip.DoesNotExist:
+                return Response(
+                    {"error": "List not found."},
+                    status=status.HTTP_404_NOT_FOUND
+                )
 
         serializer = PacklistSerializer(packlists, many=True)
         return Response(serializer.data)
