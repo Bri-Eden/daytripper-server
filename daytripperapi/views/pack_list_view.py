@@ -19,15 +19,28 @@ class PackListView(ViewSet):
         """
         return Response(serializer.data)
 
-    def list(self, request, pk):
-        """Handle GET requests for single trip"""
-        packlists = PackList.objects.filter(pk=pk)
-        if not packlists.exists():
-            return Response(
-                {"error": "PackList not found."},
-                status=status.HTTP_404_NOT_FOUND
-            )
-        serializer = PacklistSerializer(packlists.first())
+    def list(self, request):
+        """Handle GET requests to posts resource
+        Returns:
+            Response -- JSON serialized list of trips
+        """
+
+        packlists = PackList.objects.order_by('packitem')
+
+        trip_id = request.query_params.get("trip")
+
+        if trip_id:
+            try:
+                trip = Trip.objects.get(id=trip_id)
+                packlists = packlists.filter(trip=trip)
+
+            except Trip.DoesNotExist:
+                return Response(
+                    {"error": "List not found."},
+                    status=status.HTTP_404_NOT_FOUND
+                )
+
+        serializer = PacklistSerializer(packlists, many=True)
         return Response(serializer.data)
 
     def create(self, request):
@@ -46,8 +59,13 @@ class PackListView(ViewSet):
             packitem=packitem,
             trip=trip
         )
-        serializer = PackItemSerializer(packitem)
+        serializer = PacklistSerializer(packlist)
         return Response(serializer.data)
+
+    def destroy(self, request, pk):
+        packlist = PackList.objects.get(pk=pk)
+        packlist.delete(pk)
+        return Response(None, status=status.HTTP_204_NO_CONTENT)
 
 
 class PackItemSerializer(serializers.ModelSerializer):

@@ -72,6 +72,11 @@ class PackItemView(ViewSet):
 
         return Response(None, status=status.HTTP_204_NO_CONTENT)
 
+    def destroy(self, request, pk):
+        item = PackItem.objects.get(pk=pk)
+        item.delete()
+        return Response(None, status=status.HTTP_204_NO_CONTENT)
+
 
 class PlannerSerializer(serializers.ModelSerializer):
     """JSON serializer for game types
