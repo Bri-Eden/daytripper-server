@@ -34,14 +34,14 @@ class ActivityView(ViewSet):
         serialized = ActivitySerializer(activity, many=True)
         return Response(serialized.data, status=status.HTTP_200_OK)
 
-    def create(self, request, pk):
+    def create(self, request):
         """Handle POST operations
 
         Returns
         Response -- JSON serialized game instance
         """
         # would this be user? or planner?
-        trip = Trip.objects.get(pk=pk)
+        trip = Trip.objects.get(pk=request.data["trip"])
         activity_type = ActivityType.objects.get(
             pk=request.data["activity_type"])
 
@@ -75,6 +75,11 @@ class ActivityView(ViewSet):
         activity.trip = trip,
         activity.activity_type = activity_type
 
+        return Response(None, status=status.HTTP_204_NO_CONTENT)
+
+    def destroy(self, request, pk):
+        item = Activity.objects.get(pk=pk)
+        item.delete()
         return Response(None, status=status.HTTP_204_NO_CONTENT)
 
 
