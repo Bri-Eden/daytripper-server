@@ -64,7 +64,7 @@ class PackListView(ViewSet):
 
     def destroy(self, request, pk):
         packlist = PackList.objects.get(pk=pk)
-        packlist.delete(pk)
+        packlist.delete()
         return Response(None, status=status.HTTP_204_NO_CONTENT)
 
 

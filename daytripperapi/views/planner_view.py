@@ -4,6 +4,7 @@ from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
 from daytripperapi.models import Planner
+from rest_framework.authtoken.models import Token
 
 
 class PlannerView(ViewSet):
@@ -26,7 +27,13 @@ class PlannerView(ViewSet):
             Response -- JSON serialized list of game types
         """
         planners = Planner.objects.all()
-        serializer = PlannerSerializer(planners, many=True)
+
+        token = request.query_params.get("token", None)
+        if token:
+            user = Token.objects.get(key=token).user
+            planners = Planner.objects.get(user=user)
+
+        serializer = PlannerSerializer(planners)
         return Response(serializer.data)
 
 
@@ -35,4 +42,4 @@ class PlannerSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = Planner
-        fields = ('id', 'user', 'location', 'photo', 'trip')
+        fields = ('id', 'user', 'full_name', 'location', 'photo', 'trip')
