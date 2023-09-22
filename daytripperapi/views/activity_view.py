@@ -3,7 +3,7 @@ from django.http import HttpResponseServerError
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
-from daytripperapi.models import Trip, Activity, ActivityType
+from daytripperapi.models import Trip, Activity, ActivityType, Planner
 
 
 class ActivityView(ViewSet):
@@ -24,26 +24,28 @@ class ActivityView(ViewSet):
         Returns:
             Response -- JSON serialized list of trips
         """
-        activities = Activity.objects.order_by('day')
-        if "user" in request.query_params:
-            trip = Trip.objects.get(user=request.auth.user)
-            activities = activities.filter(trip=trip)
+        trip = self.request.query_params.get('trip')
 
-        serializer = ActivitySerializer(activities, many=True)
-        return Response(serializer.data)
+        if trip is not None:
+            activity = Activity.objects.filter(trip=trip)
+        else:
+            activity = Activity.objects.all()
 
-    def create(self, request):
+        serialized = ActivitySerializer(activity, many=True)
+        return Response(serialized.data, status=status.HTTP_200_OK)
+
+    def create(self, request, pk):
         """Handle POST operations
 
         Returns
         Response -- JSON serialized game instance
         """
         # would this be user? or planner?
-        trip = Trip.objects.get(user=request.auth.user)
+        trip = Trip.objects.get(pk=pk)
         activity_type = ActivityType.objects.get(
             pk=request.data["activity_type"])
 
-        trip = Trip.objects.create(
+        activity = Activity.objects.create(
             title=request.data["title"],
             day=request.data["day"],
             time=request.data["time"],
@@ -51,7 +53,7 @@ class ActivityView(ViewSet):
             trip=trip,
             activity_type=activity_type
         )
-        serializer = ActivitySerializer(trip)
+        serializer = ActivitySerializer(activity)
         return Response(serializer.data)
 
     def update(self, request, pk):
@@ -60,7 +62,7 @@ class ActivityView(ViewSet):
         Returns:
         Response -- Empty body with 204 status code
             """
-        trip = Trip.objects.get(user=request.auth.user)
+        trip = Trip.objects.get(pk=pk)
         activity_type = ActivityType.objects.get(
             pk=request.data["activity_type"])
 
